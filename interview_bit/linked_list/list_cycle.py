@@ -6,7 +6,7 @@
 
 def detectCycle(self, A):
         slow, fast = A, A
-        while fast is not None and fast.next is not None:
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             if slow is fast:

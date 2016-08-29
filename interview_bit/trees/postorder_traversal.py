@@ -11,7 +11,7 @@ def postorder_recursive(root):
 
         traverse(root)
         return values
-        
+
 # iterative
 def postorder_iterative(root):
     postorder = []
@@ -28,7 +28,7 @@ def postorder_iterative(root):
         stack2.append(node)
 
         if node.left:
-            stack1.push(node.left)
+            stack1.append(node.left)
         if node.right:
             stack1.append(node.right)
 

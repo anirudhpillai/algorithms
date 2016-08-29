@@ -3,14 +3,11 @@ def inorder_recursive(root):
     values = []
 
     def traverse(root):
-        if not root.left and not root.right:
-            values.append(root.val)
+        if not root:
             return
-        if root.left:
-            traverse(root.left)
+        traverse(root.left)
         values.append(root.val)
-        if root.right:
-            traverse(root.right)
+        traverse(root.right)
 
     traverse(root)
     return values

@@ -18,7 +18,10 @@ a = [int(a_temp) for a_temp in input().strip().split(' ')]
 if len(a) == 1:
     print(3)
 elif len(a) == 2:
-    print(1)
+    if a[0] == a[1]:
+        print(2)
+    else:
+        print(1)
 else:
     count = 0
     while True:
@@ -31,4 +34,24 @@ else:
         else:
             print(count)
             break
--
+
+import sys
+
+
+n = int(input().strip())
+a = [int(a_temp) for a_temp in input().strip().split(' ')]
+
+a.sort()
+
+if n == 1:
+    print(2)
+elif(n == 2):
+    if a[0] == a[1]:
+        print(2)
+    else:
+        print(1)
+else:
+    if sum(a[:-1]) <= a[-1]:
+        print(1)
+    else:
+        print(0)

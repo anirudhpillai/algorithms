@@ -7,7 +7,6 @@ def answer(root):
         arr.append(node.val)
         inorder(node.right)
     inorder(root)
-    ans = []
     prev = -1
     for i in arr:
         if i < prev:

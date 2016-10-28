@@ -23,7 +23,7 @@ def next_permutation(nums):
     nums[q] = temp
 
     if p<len(nums)-1:
-        reverse(nums, p+1, nums.length-1)
+        reverse(nums, p+1, len(nums)-1)
 
 
 def reverse(nums, left, right):

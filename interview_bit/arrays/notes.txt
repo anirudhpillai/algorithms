@@ -1,0 +1,7 @@
+For every O(n^2) solution check if it can be converted into
+ans O(n) solution
+
+Tricks:
+- Modifying array inplace, change indices
+- max_so_far
+- summing the array and formulas

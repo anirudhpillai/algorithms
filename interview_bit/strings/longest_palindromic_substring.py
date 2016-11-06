@@ -33,6 +33,7 @@ def lps(s):
 #     dp = [[False for i in A] for i in A]
 #
 #     longest = None
+#     # l is length, i is index of left boundary, j is index of right boundary
 #     for l in range(len(A)):
 #         for i in range(0, len(A)-l):
 #             j = i+l

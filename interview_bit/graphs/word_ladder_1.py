@@ -2,6 +2,7 @@ from collections import deque
 
 def ladderLength(start, end, dictV):
     dictV.append(end)
+
     def valid(one, two):
         one, two = list(one), list(two)
         tot = 0
@@ -31,4 +32,4 @@ def ladderLength(start, end, dictV):
 
     return 0
 
-print(ladderLength("hit", "cog", ["hot","dot","dog","lot","log"]))
+print(ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log"]))

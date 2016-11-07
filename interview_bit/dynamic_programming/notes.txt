@@ -1,0 +1,2 @@
+1. Come up with a recursive solution.
+2. Look at things that vary and try to memoize them.

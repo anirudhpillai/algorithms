@@ -6,6 +6,7 @@
 
 # Thanks to Stefan Pochmann yet again!
 
+
 class Solution(object):
     def insert(self, intervals, newInterval):
         """

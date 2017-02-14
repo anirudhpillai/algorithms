@@ -2,13 +2,13 @@ def permute(nums):
     result = []
 
     def rec(start):
-        print(start)
         if start >= len(nums):
             result.append(list(nums))
-        for j in range(start, len(nums)):
-            nums[start], nums[j] = nums[j], nums[start]
+            
+        for i in range(start, len(nums)):
+            nums[start], nums[i] = nums[i], nums[start]
             rec(start+1)
-            nums[start], nums[j] = nums[j], nums[start]
+            nums[start], nums[i] = nums[i], nums[start]
 
     rec(0)
     return result

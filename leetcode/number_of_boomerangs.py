@@ -5,9 +5,9 @@ class Solution(object):
         :rtype: int
         """
         ans = 0
-        for x1,y1 in points:
+        for x1, y1 in points:
             dp = dict()
-            for x2,y2 in points:
+            for x2, y2 in points:
                 dis = (x1-x2)**2 + (y1-y2)**2
                 if dis in dp:
                     dp[dis] += 1

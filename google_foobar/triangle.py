@@ -1,16 +1,18 @@
 def gcd(a, b):
     if b == 0:
         return a
-    return gcd(b, a%b)
+    return gcd(b, a % b)
+
 
 def on_boundary(a, b):
     if a[0] == b[0]:
         return abs(a[1] - b[1]) - 1
 
     if a[1] == b[1]:
-        return abs(a[0] - b[0]) - 1;
+        return abs(a[0] - b[0]) - 1
 
     return gcd(abs(a[0]-b[0]), abs(a[1]-b[1])) - 1
+
 
 def answer(vertices):
     v1, v2, v3 = vertices

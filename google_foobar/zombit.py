@@ -6,6 +6,7 @@ def answer(population, x, y, strength):
     infect(strength, x, y, population)
     return population
 
+
 def infect(strength, x, y, matrix):
     if 0 <= x and x < len(matrix[0]) and 0 <= y and y < len(matrix):
         if matrix[y][x] <= strength and matrix[y][x] is not -1:
@@ -14,5 +15,6 @@ def infect(strength, x, y, matrix):
             infect(strength, x-1, y, matrix)
             infect(strength, x, y+1, matrix)
             infect(strength, x, y-1, matrix)
+
 
 print(answer(matrix, 2, 1, 5))

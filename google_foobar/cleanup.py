@@ -21,6 +21,7 @@ def answer(chunk, word):
     rem = [i for i in candidates if len(i) == len(a)]
     return min(rem)
 
+
 chunk = "googoodgoogogoooogoogfogoood"
 word = "goo"
 

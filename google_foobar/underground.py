@@ -3,6 +3,7 @@ from math import factorial
 C_dp = dict()
 answer_helper_dp = dict()
 
+
 def C(n, k):
     if (n, k) in C_dp:
         return C_dp[(n, k)]
@@ -11,6 +12,7 @@ def C(n, k):
         return 0
     C_dp[(n, k)] = factorial(n) // factorial(k) // factorial(d)
     return C_dp[(n, k)]
+
 
 def answer_helper(n, k):
 
@@ -39,5 +41,6 @@ def answer_helper(n, k):
 
 def answer(N, K):
     return str(answer_helper(N, K))
+
 
 print(answer(4, 3))

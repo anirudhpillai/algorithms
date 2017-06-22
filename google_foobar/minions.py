@@ -1,5 +1,6 @@
 def answer(t, n):
     dp = {}
+
     def rec(t, p):
         if (t, p) in dp:
             return dp[(t, p)]
@@ -13,6 +14,7 @@ def answer(t, n):
             dp[(t, p)] = res
             return res
     return rec(t, 1)
+
 
 print(answer(3, 2))
 

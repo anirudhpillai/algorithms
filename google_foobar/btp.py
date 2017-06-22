@@ -4,11 +4,13 @@ def factorial(n):
     else:
         return n * factorial(n-1)
 
+
 class Node:
     def __init__(self, root):
         self.key = root
         self.left = None
         self.right = None
+
 
 def insert_node(node, key):
     if key > node.key:
@@ -22,11 +24,13 @@ def insert_node(node, key):
         else:
             insert_node(node.right, key)
 
+
 def no_of_nodes(tree):
     if not tree:
         return 0
     else:
         return 1 + no_of_nodes(tree.left) + no_of_nodes(tree.right)
+
 
 def ans(node):
     if not node:
@@ -38,11 +42,13 @@ def ans(node):
     one = (factorial(m+n) / (factorial(m) * factorial(n)))
     return str(int(one * int(ans(node.left)) * int(ans(node.right))))
 
+
 def answer(seq):
     tree = Node(seq[0])
     for i in range(1, len(seq)):
         insert_node(tree, seq[i])
     return ans(tree)
+
 
 seq = [5, 9, 8, 2, 1]
 print(answer(seq))

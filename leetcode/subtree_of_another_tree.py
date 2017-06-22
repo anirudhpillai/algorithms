@@ -29,4 +29,3 @@ class Solution(object):
             return True
 
         return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
-        

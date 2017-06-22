@@ -11,6 +11,7 @@ def answer(meetings):
             break
     return ans
 
+
 meetings = [[0, 1], [1, 2], [2, 3], [3, 5], [4, 5]]
 
 print(answer(meetings))

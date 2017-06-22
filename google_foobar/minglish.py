@@ -34,6 +34,7 @@ def answer(words):
 
     return ret
 
+
 words = ["a", "ya", "yb", "ba"]
 
 print(answer(words))

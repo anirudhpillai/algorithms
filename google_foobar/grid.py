@@ -1,7 +1,9 @@
 def answer(food, grid):
     return answerrec(food, grid, 0, 0)
 
+
 dp = dict()
+
 
 def answerrec(food, grid, x, y):
     key = str((food, x, y))
@@ -22,7 +24,10 @@ def answerrec(food, grid, x, y):
         elif y+1 > len(grid) - 1:
             dp[key] = answerrec(food, grid, x+1, y)
         else:
-            dp[key] = find_min(answerrec(food, grid, x+1, y), answerrec(food, grid, x, y+1))
+            dp[key] = find_min(
+                answerrec(food, grid, x+1, y),
+                answerrec(food, grid, x, y+1)
+            )
         return dp[key]
 
 
@@ -33,6 +38,7 @@ def find_min(a, b):
         return a
     else:
         return min(a, b)
+
 
 grid = [[0, 2, 5], [1, 1, 3], [2, 1, 1]]
 

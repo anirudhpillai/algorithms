@@ -1,5 +1,4 @@
 def answer(numbers):
-
     s = set()
     s.add(0)
     next = numbers[0]
@@ -20,4 +19,5 @@ def answer(numbers):
 
     return answer+1
 
-print(answer([1,3,0,4,1, 4, 4]))
+
+print(answer([1, 3, 0, 4, 1, 4, 4]))

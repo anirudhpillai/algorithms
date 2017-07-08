@@ -11,7 +11,7 @@ class Solution(object):
 
         # dp[i] means that s[:i] is breakable
 
-        for i in range(len(s)+1):
+        for i in range(len(s)+1):  # +1 is important
             for j in range(i):
                 if dp[j] and s[j:i] in wordDict:
                     dp[i] = True

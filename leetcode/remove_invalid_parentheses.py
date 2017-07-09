@@ -1,29 +1,45 @@
-# thanks to StefanPochmann for this amazing pythonic code
-# and sublime dictionary technique to do bfs
+from Queue import deque
 
 
 class Solution(object):
     def removeInvalidParentheses(self, s):
-        """
-        :type s: str
-        :rtype: List[str]
-        """
+        # BFS
+        def is_balanced(s):
+            count = 0
 
-        def is_valid(s):
-            brackets = 0
             for i in s:
-                if i == '(':
-                    brackets += 1
-                elif i == ')':
-                    brackets -= 1
-                    if brackets < 0:
-                        return False
-            return brackets == 0
+                if i == "(":
+                    count += 1
+                elif i == ")":
+                    count -= 1
 
-        level = {s}
+                if count < 0:
+                    return False
 
-        while True:
-            valid = filter(is_valid, level)
-            if valid:
-                return valid
-            level = {s[:i] + s[i+1:] for s in level for i in range(len(s))}
+            return count == 0
+
+        queue = deque([s])
+        result = []
+        visited = {}
+        reached = False
+
+        while queue:
+            top = queue.popleft()
+
+            if is_balanced(top):
+                result.append(top)
+                reached = True  # stop adding as minimum removals reached
+                continue
+
+            if not reached:
+                for i in range(len(top)):
+                    if top[i] not in "()":  # as we can only remove brackets
+                        continue
+
+                    new_pattern = top[:i] + top[i+1:]
+
+                    if new_pattern not in visited:
+                        queue.append(new_pattern)
+                        visited[new_pattern] = True
+
+        return result

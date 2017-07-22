@@ -11,43 +11,37 @@ Minimum window is "BANC".
 
 class Solution(object):
     def minWindow(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
+        dp = {}
+        for i in t:
+            dp[i] = dp.get(i, 0) + 1
 
         result = ""
+        missing = len(t)
+        l, r = 0, 0
 
-        table = dict()
-        for i in t:
-            if i in table:
-                table[i] += 1
-            else:
-                table[i] = 1
+        while r <= len(s):
+            if missing == 0:
+                if not result or r-l < len(result):
+                    result = s[l:r]
 
-        count = len(table)  # unique chars in t
-
-        l, r = 0, -1
-
-        while r < len(s):
-            if count == 0:  # l-r contains t
-                if not result or r-l+1 < len(result):
-                    result = s[l:r+1]
-
-                if s[l] in table:
-                    table[s[l]] += 1
-
-                    if table[s[l]] > 0:
-                        count += 1
-
+                if s[l] in dp:
+                    dp[s[l]] += 1
+                    if dp[s[l]] > 0:
+                        missing += 1
                 l += 1
-
             else:
-                r += 1  # move r and add new char
-
                 if r == len(s):
                     break
 
-                if s[r] in table:
-                    table[s[r]] -= 1
-
-                    if table[s[r]] == 0:
-                        count -= 1
+                if s[r] in dp:
+                    dp[s[r]] -= 1
+                    if dp[s[r]] >= 0:
+                        missing -= 1
+                r += 1
 
         return result

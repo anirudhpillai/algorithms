@@ -12,9 +12,7 @@ Minimum window is "BANC".
 class Solution(object):
     def minWindow(self, s, t):
         """
-        :type s: str
-        :type t: str
-        :rtype: str
+        Check out smallest range after this
         """
         dp = {}
         for i in t:

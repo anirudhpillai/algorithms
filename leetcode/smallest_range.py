@@ -1,8 +1,7 @@
 class Solution(object):
     def smallestRange(self, nums):
         """
-        :type nums: List[List[int]]
-        :rtype: List[int]
+        Similar to Minimum Window Substring
         """
         ans = -1e9, 1e9
 

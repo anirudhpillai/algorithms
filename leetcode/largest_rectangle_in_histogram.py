@@ -1,8 +1,11 @@
 class Solution(object):
     def largestRectangleArea(self, heights):
         """
-        :type heights: List[int]
-        :rtype: int
+        We need to calculate area with each bar as the smallest bar
+        in the rectangle. For this we need to know the closest bars which
+        are shorter than the current bar, both on the right and the left.
+        The stack provides a good way to keep track of the bar on the left
+        and the loop automatically gets the bar on the right.
         """
         stack = []
         result = 0
@@ -12,7 +15,9 @@ class Solution(object):
                 top = stack.pop()
                 width = i
                 if stack:
-                    width = i - (stack[-1] + 1)  # as everything before the last item on stack
+                    # as everything between the last item on stack
+                    # and the curr i
+                    width = (i - 1) - stack[-1]
                 result = max(result, heights[top] * width)
 
             stack.append(i)

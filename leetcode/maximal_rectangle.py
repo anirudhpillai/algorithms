@@ -1,5 +1,8 @@
 class Solution(object):
     def maximalRectangle(self, matrix):
+        """
+        based on largest_rectangle_in_histogram
+        """
         if not matrix:
             return 0
 

@@ -6,6 +6,8 @@ class Solution(object):
         are shorter than the current bar, both on the right and the left.
         The stack provides a good way to keep track of the bar on the left
         and the loop automatically gets the bar on the right.
+
+        Try maximal rectangle after this.
         """
         stack = []
         result = 0

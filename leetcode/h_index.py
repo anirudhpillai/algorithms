@@ -1,13 +1,31 @@
 class Solution(object):
     def hIndex(self, citations):
-        """
-        :type citations: List[int]
-        :rtype: int
-        """
-        citations.sort(reverse=True)
-        h = 0
-        for i in range(len(citations)):
-            if citations[i] >= i+1 and (i == len(citations)-1 or citations[i+1] <= i+1):
-                    h = i+1
+        buckets = [0] * (len(citations)+1)
 
-        return h
+        for c in citations:
+            if c > len(citations):
+                buckets[len(citations)] += 1
+            else:
+                buckets[c] += 1
+
+        total = 0
+
+        for i in reversed(range(len(buckets))):
+            total += buckets[i]
+            if total >= i:
+                return i
+
+        return 0
+
+        """Without Bucket Sort
+        citations.sort(reverse=True)
+
+        i = 0
+
+        while i < len(citations):
+            if i >= citations[i]:
+                return i
+            i += 1
+
+        return i
+        """

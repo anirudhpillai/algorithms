@@ -1,48 +1,32 @@
-"""
-Merge k sorted linked lists and return it as one sorted list.
-Analyze and describe its complexity.
-"""
-
-
-from queue import PriorityQueue
-
-
 # Definition for singly-linked list.
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-"""
-Solution using PriorityQueue
-Complexity: nlog(k)
-where n is total number of elements and k is number of lists
-"""
+from Queue import PriorityQueue
+
+
 class Solution(object):
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
         :rtype: ListNode
         """
-
-        if not lists:
-            return None
-
+        head = ListNode(0)
+        dummy = head
         queue = PriorityQueue()
 
-        for list in lists:
-            if list:
-                queue.put((list.val, list))
-
-        head = ListNode(0)
-        p = head
+        for node in lists:
+            if node:
+                queue.put((node.val, node))
 
         while not queue.empty():
-            n = queue.get()[1]
-            p.next = n
-            p = p.next
-
-            if n.next:
-                queue.put((n.next.val, n.next))
+            least_val, least = queue.get()
+            dummy.next = ListNode(least_val)
+            dummy = dummy.next
+            least = least.next
+            if least:
+                queue.put((least.val, least))
 
         return head.next

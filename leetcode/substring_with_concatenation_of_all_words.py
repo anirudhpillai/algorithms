@@ -5,6 +5,7 @@ of substring(s) in s that is a concatenation of each word
 in words exactly once and without any intervening characters.
 """
 
+
 class Solution(object):
     def findSubstring(self, s, words):
         """
@@ -16,7 +17,7 @@ class Solution(object):
         # dict to gather frequecy of words
         map = {}
         for w in words:
-            if not w in map:
+            if w not in map:
                 map[w] = 1
             else:
                 map[w] += 1

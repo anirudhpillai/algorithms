@@ -19,6 +19,7 @@ def generateParenthesis(n):
     dfs("", n, n)
     return all
 
+
 """ Initial Solution
 
 def generateParenthesis(n):

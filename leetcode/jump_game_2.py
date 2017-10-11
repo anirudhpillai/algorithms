@@ -1,10 +1,10 @@
 def jump_game(nums):
     if not nums:
-		return 0
+        return 0
 
-	last_reach = 0
-	reach = 0
-	step = 0
+    last_reach = 0
+    reach = 0
+    step = 0
 
     for i in range(0, len(nums)):
         if i > reach:

@@ -27,3 +27,17 @@ class Solution(object):
             p = p.next
 
         return dic[head]
+
+
+""" One pass solution
+def copyRandomList(head):
+    dic = collections.defaultdict(lambda: RandomListNode(0))
+    dic[None] = None
+    n = head
+    while n:
+        dic[n].label = n.label
+        dic[n].next = dic[n.next]
+        dic[n].random = dic[n.random]
+        n = n.next
+    return dic[head]
+"""

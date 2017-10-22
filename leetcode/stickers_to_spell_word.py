@@ -8,6 +8,20 @@ class Solution(object):
         Can improve BFS as order of adding elements doesn't matter
         and we should give priority to keys with less remaining elements
         """
+
+        """Stefan Pochmann's Solution
+        def minStickers(self, stickers, target):
+            if set(target).difference(*stickers):
+                return -1
+            def ms(target, memo={(): 0}):
+                key = tuple(sorted(target.elements()))
+                if key not in memo:
+                    memo[key] = 1 + min(ms(target - s) for s in stickers if min(target) in s)
+                return memo[key]
+            stickers = map(collections.Counter, stickers)
+            return ms(collections.Counter(target))
+        """
+
         target = collections.Counter(target)
         stickers = map(collections.Counter, stickers)
 

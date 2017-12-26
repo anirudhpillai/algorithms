@@ -1,10 +1,3 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
 class Solution:
     def diameterOfBinaryTree(self, root):
         """
@@ -13,15 +6,16 @@ class Solution:
         """
         self.maximum = 0
 
-        def depth(node, curr_depth):
+        # depth is no of nodes on branch not the no of edges
+        def depth(node):
             if not node:
                 return 0
 
-            left = depth(node.left, 1)
-            right = depth(node.right, 1)
+            left = depth(node.left)
+            right = depth(node.right)
 
             self.maximum = max(self.maximum, left + right)
-            return curr_depth + max(left, right)
+            return 1 + max(left, right)
 
-        depth(root, 0)
+        depth(root)
         return self.maximum

@@ -1,28 +1,36 @@
-def decodeString(self, s):
-        clean = True
-        for i in s:
-            if i == '[' or i == ']':
-                clean = False
-
-        if clean:
+class Solution(object):
+    def decodeString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        if not s:
             return s
 
-        result = ""
-        i = 0
+        start = 0
 
-        while i < len(s):
-            if s[i] == '[':
-                num = s[i-1]
-                end = i
-                while end < len(s):
-                    if s[end] == ']':
-                        break
-                    end += 1
-                result += int(num)*self.decodeString(s[i+1:end])
-                i = end
-            elif s[i] not in "]1234567890":
-                result += s[i]
+        if not s[0].isdigit():
+            while start < len(s) and not s[start].isdigit():
+                start += 1
+            return s[0:start] + self.decodeString(s[start:])
 
-            i += 1
+        while start < len(s) and s[start] != "[":
+            start += 1
 
-        return result
+        rep = int(s[0:start])
+
+        count = 1
+        end = start + 1
+
+        while end < len(s):
+            if s[end] == "[":
+                count += 1
+            if s[end] == "]":
+                count -= 1
+
+            if count == 0:
+                break
+
+            end += 1
+
+        return (rep * self.decodeString(s[start+1:end])) + self.decodeString(s[end+1:])

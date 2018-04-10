@@ -4,6 +4,7 @@ class Log:
         self.id = int(self.id)
         self.time = int(self.time)
 
+
 class Solution:
     def exclusiveTime(self, n, logs):
         """

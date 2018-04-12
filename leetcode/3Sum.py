@@ -7,8 +7,7 @@ class Solution(object):
         result = []
 
         for i in range(len(nums)):
-            if i > 0:
-                if nums[i] == nums[i-1]:
+            if i > 0 and nums[i] == nums[i-1]:
                     continue
 
             j = i+1

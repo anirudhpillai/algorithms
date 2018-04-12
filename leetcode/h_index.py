@@ -20,12 +20,11 @@ class Solution(object):
         """Without Bucket Sort
         citations.sort(reverse=True)
 
-        i = 0
+        result = 0
 
-        while i < len(citations):
-            if i >= citations[i]:
-                return i
-            i += 1
+        for i, citation in enumerate(citations):
+            if citation >= i + 1:
+                result = i + 1
 
-        return i
+        return result
         """

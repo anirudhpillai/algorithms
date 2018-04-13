@@ -1,22 +1,14 @@
-def jump_game(nums):
-    if len(nums) <= 1:
+class Solution:
+    def canJump(self, nums):
+        reach = 0
+
+        for i, n in enumerate(nums):
+            if i > reach:
+                return False
+
+            reach = max(reach, i+n)
+
         return True
-
-    maximum = nums[0]
-
-    for i in range(len(nums)):
-        # if not enough to go to next
-        if maximum <= i and nums[i] == 0:
-            return False
-
-        # update max
-        maximum = max(i+nums[i], maximum)
-
-        # max is enough to reach the end
-        if maximum >= len(nums) - 1:
-            return True
-
-    return False
 
 
 # def jump_game(nums):

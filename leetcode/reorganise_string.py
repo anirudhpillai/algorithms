@@ -35,3 +35,11 @@ class Solution:
                 queue.put((-freq, letter))
 
         return result
+
+
+"""
+Also check out Rearrage string k distance apart.
+Compare time complexity.
+
+https://www.programcreek.com/2014/08/leetcode-rearrange-string-k-distance-apart-java/
+"""

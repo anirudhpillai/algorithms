@@ -11,13 +11,17 @@ class Solution(object):
             result = 0
 
             for i in range(len(heights)+1):
-                while stack and (i == len(heights) or heights[i] < heights[stack[-1]]):
+                while stack and (
+                    i == len(heights)
+                    or heights[i] < heights[stack[-1]]
+                ):
                     top = stack.pop()
                     width = i
                     if stack:
                         width = i - 1 - stack[-1]
                     result = max(result, heights[top] * width)
                 stack.append(i)
+
             return result
 
         result = 0

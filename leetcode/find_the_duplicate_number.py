@@ -28,3 +28,22 @@ class Solution(object):
             else:
                 high = mid
         return low
+
+    
+"""
+If we're allowed to modify the array then this works
+
+class Solution(object):
+    def findDuplicate(self, nums):        
+        for i in range(len(nums) - 1):
+            while nums[i] != i + 1:
+                val = nums[i]
+                
+                if val == nums[val - 1]:
+                    return val
+                
+                nums[i], nums[val - 1] = nums[val - 1], nums[i]
+                    
+        
+        return nums[-1]
+"""
